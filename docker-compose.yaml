@@ -1,0 +1,22 @@
+version: "3.2"
+services:
+    zosConnect:
+        #edit line below with correct image name
+        image: icr.io/zosconnect/ibm-zcon-designer:3.0.70
+        user: root
+        #edit line below with correct environment variables for the subsystem
+        environment:
+            #cics connection info.  delete if not using.  edit if you are
+            - CICS_USER=KENISHI
+            - CICS_PASSWORD={aes}AI9OhO/7he6TyHDAybFlZHu241Z/8gdUVFWTgTygJMT2 
+            - CICS_HOST=esysmvs1.wsclab.washington.ibm.com
+            - CICS_PORT=6088
+            - HTTP_PORT=9080
+        ports:
+            - "9443:9443"
+            - "9080:9080"
+        #edit first volume below to match name of API
+        volumes:
+            - ./CatalogManagerApi:/workspace/project
+            - ./logs/:/logs/
+            - ./certs:/config/resources/security/:ro

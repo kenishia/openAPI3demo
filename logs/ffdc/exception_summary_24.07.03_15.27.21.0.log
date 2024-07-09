@@ -1,0 +1,6 @@
+
+ Index  Count  Time of first Occurrence    Time of last Occurrence     Exception SourceId ProbeId
+------+------+---------------------------+---------------------------+---------------------------
+     0      1     7/3/24 15:27:21:226 UTC     7/3/24 15:27:21:226 UTC javax.servlet.ServletException com.ibm.ws.webcontainer.servlet.FileServletWrapper.handleRequest 309
+                                                                            - /logs/ffdc/ffdc_24.07.03_15.27.21.0.log
+------+------+---------------------------+---------------------------+---------------------------
