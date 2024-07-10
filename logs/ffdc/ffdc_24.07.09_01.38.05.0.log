@@ -1,0 +1,535 @@
+------Start of DE processing------ = [7/9/24 1:38:05:727 UTC]
+Exception = com.ibm.ws.webcontainer.webapp.WebAppErrorReport
+Source = com.ibm.ws.webcontainer.filter.FilterInstanceWrapper.doFilter
+probeid = 144
+Stack Dump = com.ibm.ws.webcontainer.webapp.WebAppErrorReport: javax.servlet.ServletException: java.io.IOException: Broken pipe
+	at com.ibm.ws.webcontainer.webapp.WebAppErrorReport.constructErrorReport(WebAppErrorReport.java:157)
+	at com.ibm.ws.webcontainer.webapp.WebAppErrorReport.constructErrorReport(WebAppErrorReport.java:204)
+	at com.ibm.ws.webcontainer.servlet.FileServletWrapper.handleRequest(FileServletWrapper.java:577)
+	at com.ibm.ws.webcontainer.servlet.FileServletWrapper.handleRequest(FileServletWrapper.java:268)
+	at com.ibm.ws.webcontainer.filter.WebAppFilterChain.invokeTarget(WebAppFilterChain.java:197)
+	at com.ibm.ws.webcontainer.filter.WebAppFilterChain.doFilter(WebAppFilterChain.java:100)
+	at com.ibm.zosconnect.ui.war.CacheFilter.doFilter(CacheFilter.java:55)
+	at com.ibm.ws.webcontainer.filter.FilterInstanceWrapper.doFilter(FilterInstanceWrapper.java:203)
+	at com.ibm.ws.webcontainer.filter.WebAppFilterChain.doFilter(WebAppFilterChain.java:93)
+	at com.ibm.ws.webcontainer.filter.WebAppFilterManager.doFilter(WebAppFilterManager.java:1068)
+	at com.ibm.ws.webcontainer.filter.WebAppFilterManager.invokeFilters(WebAppFilterManager.java:1260)
+	at com.ibm.ws.webcontainer.filter.WebAppFilterManager.invokeFilters(WebAppFilterManager.java:1077)
+	at com.ibm.ws.webcontainer.servlet.CacheServletWrapper.handleRequest(CacheServletWrapper.java:77)
+	at com.ibm.ws.webcontainer40.servlet.CacheServletWrapper40.handleRequest(CacheServletWrapper40.java:87)
+	at com.ibm.ws.webcontainer.WebContainer.handleRequest(WebContainer.java:969)
+	at com.ibm.ws.webcontainer.osgi.DynamicVirtualHost$2.run(DynamicVirtualHost.java:283)
+	at com.ibm.ws.http.dispatcher.internal.channel.HttpDispatcherLink$TaskWrapper.run(HttpDispatcherLink.java:1248)
+	at com.ibm.ws.http.dispatcher.internal.channel.HttpDispatcherLink.wrapHandlerAndExecute(HttpDispatcherLink.java:470)
+	at com.ibm.ws.http.dispatcher.internal.channel.HttpDispatcherLink.ready(HttpDispatcherLink.java:429)
+	at com.ibm.ws.http.channel.internal.inbound.HttpInboundLink.handleDiscrimination(HttpInboundLink.java:569)
+	at com.ibm.ws.http.channel.internal.inbound.HttpInboundLink.handleNewRequest(HttpInboundLink.java:503)
+	at com.ibm.ws.http.channel.internal.inbound.HttpInboundLink.processRequest(HttpInboundLink.java:363)
+	at com.ibm.ws.http.channel.internal.inbound.HttpInboundLink.ready(HttpInboundLink.java:330)
+	at com.ibm.ws.tcpchannel.internal.NewConnectionInitialReadCallback.sendToDiscriminators(NewConnectionInitialReadCallback.java:169)
+	at com.ibm.ws.tcpchannel.internal.NewConnectionInitialReadCallback.complete(NewConnectionInitialReadCallback.java:77)
+	at com.ibm.ws.tcpchannel.internal.WorkQueueManager.requestComplete(WorkQueueManager.java:516)
+	at com.ibm.ws.tcpchannel.internal.WorkQueueManager.attemptIO(WorkQueueManager.java:586)
+	at com.ibm.ws.tcpchannel.internal.WorkQueueManager.workerRun(WorkQueueManager.java:970)
+	at com.ibm.ws.tcpchannel.internal.WorkQueueManager$Worker.run(WorkQueueManager.java:1059)
+	at com.ibm.ws.threading.internal.ExecutorServiceImpl$RunnableWrapper.run(ExecutorServiceImpl.java:247)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1160)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:825)
+Caused by: javax.servlet.ServletException: java.io.IOException: Broken pipe
+	at com.ibm.ws.webcontainer.servlet.FileServletWrapper.service(FileServletWrapper.java:723)
+	at com.ibm.ws.webcontainer.servlet.FileServletWrapper.handleRequest(FileServletWrapper.java:518)
+	... 30 more
+Caused by: java.io.IOException: Broken pipe
+	at sun.nio.ch.FileDispatcherImpl.writev0(Native Method)
+	at sun.nio.ch.SocketDispatcher.writev(SocketDispatcher.java:63)
+	at sun.nio.ch.IOUtil.write(IOUtil.java:160)
+	at sun.nio.ch.SocketChannelImpl.write(SocketChannelImpl.java:518)
+	at java.nio.channels.SocketChannel.write(SocketChannel.java:513)
+	at com.ibm.ws.tcpchannel.internal.NioSocketIOChannel.write(NioSocketIOChannel.java:207)
+	at com.ibm.ws.tcpchannel.internal.NioSocketIOChannel.attemptWriteToSocketUsingNIO(NioSocketIOChannel.java:158)
+	at com.ibm.ws.tcpchannel.internal.SocketIOChannel.attemptWriteToSocket(SocketIOChannel.java:200)
+	at com.ibm.ws.tcpchannel.internal.WorkQueueManager.attemptIO(WorkQueueManager.java:607)
+	at com.ibm.ws.tcpchannel.internal.WorkQueueManager.processWork(WorkQueueManager.java:311)
+	at com.ibm.ws.tcpchannel.internal.NioTCPWriteRequestContextImpl.processAsyncWriteRequest(NioTCPWriteRequestContextImpl.java:104)
+	at com.ibm.ws.tcpchannel.internal.TCPWriteRequestContextImpl.writeInternal(TCPWriteRequestContextImpl.java:322)
+	at com.ibm.ws.tcpchannel.internal.NioTCPWriteRequestContextImpl.processSyncWriteRequest(NioTCPWriteRequestContextImpl.java:60)
+	at com.ibm.ws.tcpchannel.internal.TCPWriteRequestContextImpl.write(TCPWriteRequestContextImpl.java:98)
+	at com.ibm.ws.http.channel.internal.HttpServiceContextImpl.synchWrite(HttpServiceContextImpl.java:3143)
+	at com.ibm.ws.http.channel.internal.HttpServiceContextImpl.sendOutgoing(HttpServiceContextImpl.java:2771)
+	at com.ibm.ws.http.channel.internal.inbound.HttpInboundServiceContextImpl.sendResponseBody(HttpInboundServiceContextImpl.java:705)
+	at com.ibm.ws.http.channel.internal.outbound.HttpOutputStreamImpl.flushBuffers(HttpOutputStreamImpl.java:546)
+	at com.ibm.ws.http.channel.internal.outbound.HttpOutputStreamImpl.writeToBuffers(HttpOutputStreamImpl.java:330)
+	at com.ibm.ws.http.channel.internal.outbound.HttpOutputStreamImpl.write(HttpOutputStreamImpl.java:687)
+	at com.ibm.ws.webcontainer.osgi.response.WCOutputStream.write(WCOutputStream.java:254)
+	at com.ibm.ws.webcontainer31.osgi.response.WCOutputStream31.write(WCOutputStream31.java:219)
+	at com.ibm.ws.webcontainer.servlet.FileServletWrapper.writeByBytes(FileServletWrapper.java:1006)
+	at com.ibm.ws.webcontainer.servlet.FileServletWrapper.writeResponseToClient(FileServletWrapper.java:962)
+	at com.ibm.ws.webcontainer.servlet.FileServletWrapper.service(FileServletWrapper.java:695)
+	... 31 more
+
+Dump of callerThis
+Object type = com.ibm.ws.webcontainer.filter.FilterInstanceWrapper
+  FILTER_STATE_UNINITIALIZED = 0
+  FILTER_STATE_INITIALIZING = 1
+  FILTER_STATE_AVAILABLE = 2
+  FILTER_STATE_DESTROYING = 3
+  FILTER_STATE_DESTROYED = 4
+  FILTER_STATE_UNAVAILABLE = 5
+  _filterName = "com.ibm.zosconnect.ui.war.CacheFilter"
+  _filterInstance = class com.ibm.zosconnect.ui.war.CacheFilter@5b6426f2
+  _filterState = 2
+  nServicing = class java.util.concurrent.atomic.AtomicInteger@2a2a8545
+    serialVersionUID = 6214790243416807050
+    unsafe = class sun.misc.Unsafe@e8dec3aa
+      theUnsafe = class sun.misc.Unsafe@e8dec3aa
+      INVALID_FIELD_OFFSET = -1
+      ARRAY_BOOLEAN_BASE_OFFSET = 16
+      ARRAY_BYTE_BASE_OFFSET = 16
+      ARRAY_SHORT_BASE_OFFSET = 16
+      ARRAY_CHAR_BASE_OFFSET = 16
+      ARRAY_INT_BASE_OFFSET = 16
+      ARRAY_LONG_BASE_OFFSET = 16
+      ARRAY_FLOAT_BASE_OFFSET = 16
+      ARRAY_DOUBLE_BASE_OFFSET = 16
+      ARRAY_OBJECT_BASE_OFFSET = 16
+      ARRAY_BOOLEAN_INDEX_SCALE = 1
+      ARRAY_BYTE_INDEX_SCALE = 1
+      ARRAY_SHORT_INDEX_SCALE = 2
+      ARRAY_CHAR_INDEX_SCALE = 2
+      ARRAY_INT_INDEX_SCALE = 4
+      ARRAY_LONG_INDEX_SCALE = 8
+      ARRAY_FLOAT_INDEX_SCALE = 4
+      ARRAY_DOUBLE_INDEX_SCALE = 8
+      ARRAY_OBJECT_INDEX_SCALE = 4
+      ADDRESS_SIZE = 8
+    valueOffset = 8
+    value = 0
+    serialVersionUID = -8742448824652078965
+  logger = class com.ibm.ws.logging.internal.WsLogger@234661bd
+    ivCachedResourceBundleName = null
+    ivCachedResourceBundle = null
+    ivComponent = null
+    ivOrganization = null
+    ivProduct = null
+    ivMinimumLocalizationLevelIntValue = 625
+    ivTC = class com.ibm.websphere.ras.TraceComponent@b24500f
+      strings[0] = "TraceComponent[com.ibm.ws.webcontainer.filter,class com.ibm.wsspi.webcontainer.logging.LoggerFactory$1,[com.ibm.ws.webcontainer.filter],null,null]"
+    loggerRegistrationComponent = class java.lang.ThreadLocal@8e4e497d
+      threadLocalHashCode = -739633145
+      nextHashCode = class java.util.concurrent.atomic.AtomicInteger@d223ec49
+      HASH_INCREMENT = 1640531527
+    emptyHandlers = class java.util.logging.Handler[0]
+    offValue = 2147483647
+    SYSTEM_LOGGER_RB_NAME = "sun.util.logging.resources.logging"
+    SYSTEM_BUNDLE = class java.util.logging.Logger$LoggerBundle@c5395492
+      resourceBundleName = "sun.util.logging.resources.logging"
+      userBundle = null
+    NO_RESOURCE_BUNDLE = class java.util.logging.Logger$LoggerBundle@9e32fbbb
+      resourceBundleName = null
+      userBundle = null
+    manager = class com.ibm.ws.kernel.boot.logging.WsLogManager@f62a5c76
+      CONFIGURE_BY_SERVER_PROPERTY_NAME = "java.util.logging.configureByServer"
+      CONFIGURE_BY_LOGGING_PROPERTIES_FILE = "java.util.logging.configureByLoggingPropertiesFile"
+      configureByServer = true
+      configureByLoggingProperties = false
+      wsLogger = class java.lang.reflect.Constructor@58c296
+      resetEnabled = true
+      svBinaryLoggingEnable = false
+      manager = class com.ibm.ws.kernel.boot.logging.WsLogManager@f62a5c76
+      props = class java.util.Properties@82edd5e7
+      defaultLevel = class java.util.logging.Level@d78f0acd
+      listenerMap = class java.util.HashMap@7174e1e7
+      systemContext = class java.util.logging.LogManager$SystemLoggerContext@e9f656be
+      userContext = class java.util.logging.LogManager$LoggerContext@e99eed40
+      rootLogger = class java.util.logging.LogManager$RootLogger@695d25a7
+      readPrimordialConfiguration = true
+      initializedGlobalHandlers = true
+      deathImminent = false
+      initializedCalled = true
+      initializationDone = true
+      contextsMap = null
+      loggerRefQueue = class java.lang.ref.ReferenceQueue@4efc4ae4
+      MAX_ITERATIONS = 400
+      controlPermission = class java.util.logging.LoggingPermission@92972b16
+      loggingMXBean = null
+      LOGGING_MXBEAN_NAME = "java.util.logging:type=Logging"
+      $assertionsDisabled = true
+    name = "com.ibm.ws.webcontainer.filter"
+    handlers = class java.util.concurrent.CopyOnWriteArrayList@e95b5e6c
+      serialVersionUID = 8673264195747942595
+      lock = class java.util.concurrent.locks.ReentrantLock@811d63c0
+      array = class java.lang.Object[0]
+      UNSAFE = class sun.misc.Unsafe@e8dec3aa
+      lockOffset = 8
+    loggerBundle = class java.util.logging.Logger$LoggerBundle@f3445390
+      resourceBundleName = "com.ibm.ws.webcontainer.resources.Messages"
+      userBundle = null
+    useParentHandlers = true
+    filter = null
+    anonymous = false
+    catalog = class com.ibm.ws.webcontainer.resources.Messages@fb91cc21
+      resources = class [Ljava.lang.Object;[344]
+      lookup = class java.util.HashMap@85254ebe
+      INITIAL_CACHE_SIZE = 32
+      NONEXISTENT_BUNDLE = class java.util.ResourceBundle$1@c3f4ad4d
+      cacheList = class java.util.concurrent.ConcurrentHashMap@e7f27ea0
+      referenceQueue = class java.lang.ref.ReferenceQueue@faa69495
+      parent = null
+      locale = class java.util.Locale@1dc0a136
+      name = "com.ibm.ws.webcontainer.resources.Messages"
+      expired = false
+      cacheKey = class java.util.ResourceBundle$CacheKey@a4fd8f9
+      keySet = null
+      providers = null
+      vo = class java.lang.Object@ae6aac47
+      $assertionsDisabled = true
+    catalogName = "com.ibm.ws.webcontainer.resources.Messages"
+    catalogLocale = class java.util.Locale@6f412e5a
+      LOCALECACHE = class java.util.Locale$Cache@8b545b34
+      ENGLISH = class java.util.Locale@21e755c
+      FRENCH = class java.util.Locale@cf724b3d
+      GERMAN = class java.util.Locale@eab7d9f9
+      ITALIAN = class java.util.Locale@33225dcf
+      JAPANESE = class java.util.Locale@b8f1750f
+      KOREAN = class java.util.Locale@5016e78c
+      CHINESE = class java.util.Locale@dc650e1e
+      SIMPLIFIED_CHINESE = class java.util.Locale@95e28c3b
+      TRADITIONAL_CHINESE = class java.util.Locale@6f045225
+      FRANCE = class java.util.Locale@5c9fea60
+      GERMANY = class java.util.Locale@a28809de
+      ITALY = class java.util.Locale@e21d6bde
+      JAPAN = class java.util.Locale@adc30b8c
+      KOREA = class java.util.Locale@5dbef5b1
+      CHINA = class java.util.Locale@95e28c3b
+      PRC = class java.util.Locale@95e28c3b
+      TAIWAN = class java.util.Locale@6f045225
+      UK = class java.util.Locale@214644d7
+      US = class java.util.Locale@6f412e5a
+      CANADA = class java.util.Locale@b72a3847
+      CANADA_FRENCH = class java.util.Locale@8ee10f9d
+      ROOT = class java.util.Locale@1dc0a136
+      PRIVATE_USE_EXTENSION = x
+      UNICODE_LOCALE_EXTENSION = u
+      serialVersionUID = 9149081749638150636
+      DISPLAY_LANGUAGE = 0
+      DISPLAY_COUNTRY = 1
+      DISPLAY_VARIANT = 2
+      DISPLAY_SCRIPT = 3
+      baseLocale = class sun.util.locale.BaseLocale@ce3af8e7
+      localeExtensions = null
+      hashCodeValue = 96636889
+      defaultLocale = class java.util.Locale@6f412e5a
+      defaultDisplayLocale = null
+      defaultFormatLocale = class java.util.Locale@6f412e5a
+      languageTag = "en-US"
+      serialPersistentFields = class java.io.ObjectStreamField[6]
+      isoLanguages = null
+      isoCountries = null
+      $assertionsDisabled = true
+    treeLock = class java.lang.Object@4438b560
+    parent = class com.ibm.ws.logging.internal.WsLogger@a286a8f6
+      ivCachedResourceBundleName = "com.ibm.ws.webcontainer.resources.Messages"
+      ivCachedResourceBundle = class com.ibm.ws.webcontainer.resources.Messages@fb91cc21
+      ivComponent = null
+      ivOrganization = null
+      ivProduct = null
+      ivMinimumLocalizationLevelIntValue = 625
+      ivTC = class com.ibm.websphere.ras.TraceComponent@3a50cb07
+      loggerRegistrationComponent = class java.lang.ThreadLocal@8e4e497d
+      emptyHandlers = class java.util.logging.Handler[0]
+      offValue = 2147483647
+      SYSTEM_LOGGER_RB_NAME = "sun.util.logging.resources.logging"
+      SYSTEM_BUNDLE = class java.util.logging.Logger$LoggerBundle@c5395492
+      NO_RESOURCE_BUNDLE = class java.util.logging.Logger$LoggerBundle@9e32fbbb
+      manager = class com.ibm.ws.kernel.boot.logging.WsLogManager@f62a5c76
+      name = "com.ibm.ws.webcontainer"
+      handlers = class java.util.concurrent.CopyOnWriteArrayList@6bd45979
+      loggerBundle = class java.util.logging.Logger$LoggerBundle@844e3458
+      useParentHandlers = true
+      filter = null
+      anonymous = false
+      catalog = class com.ibm.ws.webcontainer.resources.Messages@fb91cc21
+      catalogName = "com.ibm.ws.webcontainer.resources.Messages"
+      catalogLocale = class java.util.Locale@6f412e5a
+      treeLock = class java.lang.Object@4438b560
+      parent = class java.util.logging.Logger@b9e0c739
+      kids = class java.util.ArrayList@975611d3
+      levelObject = class java.util.logging.Level@d78f0acd
+      levelValue = 800
+      callersClassLoaderRef = class java.lang.ref.WeakReference@25f242b7
+      isSystemLogger = false
+      GLOBAL_LOGGER_NAME = "global"
+      global = class java.util.logging.Logger@b271789e
+      $assertionsDisabled = true
+    kids = null
+    levelObject = class java.util.logging.Level@d78f0acd
+      defaultBundle = "sun.util.logging.resources.logging"
+      name = "INFO"
+      value = 800
+      resourceBundleName = "sun.util.logging.resources.logging"
+      localizedLevelName = "INFO"
+      cachedLocale = class java.util.Locale@6f412e5a
+      OFF = class java.util.logging.Level@3431639c
+      SEVERE = class java.util.logging.Level@99d3496f
+      WARNING = class java.util.logging.Level@69a31684
+      INFO = class java.util.logging.Level@d78f0acd
+      CONFIG = class java.util.logging.Level@6ee5884b
+      FINE = class java.util.logging.Level@6e860a52
+      FINER = class java.util.logging.Level@e22321ea
+      FINEST = class java.util.logging.Level@ac35126a
+      ALL = class java.util.logging.Level@531103bc
+      serialVersionUID = -8176160795706313070
+    levelValue = 800
+    callersClassLoaderRef = class java.lang.ref.WeakReference@60842c10
+      STATE_INITIAL = 0
+      STATE_CLEARED = 1
+      STATE_ENQUEUED = 2
+      referent = class org.eclipse.osgi.internal.loader.EquinoxClassLoader@3964b418
+      queue = null
+      state = 0
+    isSystemLogger = false
+    GLOBAL_LOGGER_NAME = "global"
+    global = class java.util.logging.Logger@b271789e
+      emptyHandlers = class java.util.logging.Handler[0]
+      offValue = 2147483647
+      SYSTEM_LOGGER_RB_NAME = "sun.util.logging.resources.logging"
+      SYSTEM_BUNDLE = class java.util.logging.Logger$LoggerBundle@c5395492
+      NO_RESOURCE_BUNDLE = class java.util.logging.Logger$LoggerBundle@9e32fbbb
+      manager = class com.ibm.ws.kernel.boot.logging.WsLogManager@f62a5c76
+      name = "global"
+      handlers = class java.util.concurrent.CopyOnWriteArrayList@a1e05428
+      loggerBundle = class java.util.logging.Logger$LoggerBundle@9e32fbbb
+      useParentHandlers = true
+      filter = null
+      anonymous = false
+      catalog = null
+      catalogName = null
+      catalogLocale = null
+      treeLock = class java.lang.Object@4438b560
+      parent = class java.util.logging.LogManager$RootLogger@695d25a7
+      kids = null
+      levelObject = null
+      levelValue = 800
+      callersClassLoaderRef = null
+      isSystemLogger = true
+      GLOBAL_LOGGER_NAME = "global"
+      global = class java.util.logging.Logger@b271789e
+      $assertionsDisabled = true
+    $assertionsDisabled = true
+  CLASS_NAME = "com.ibm.ws.webcontainer.filter.FilterInstanceWrapper"
+  _filterEvent = null
+  _filterConfig = class com.ibm.ws.webcontainer.filter.FilterConfig@595b005a
+    tc = class com.ibm.websphere.ras.TraceComponent@dfeb0e3a
+      strings[0] = "TraceComponent[com.ibm.ws.webcontainer.filter.FilterConfig,class com.ibm.ws.webcontainer.filter.FilterConfig,[webcontainer],com.ibm.ws.webcontainer.resources.LShimMessages,null]"
+    dispatchMode = null
+    filterClassLoader = null
+    isInternal = false
+    webAppConfig = class com.ibm.ws.webcontainer.osgi.webapp.WebAppConfiguration@688f9836
+      webModuleMetaData = class com.ibm.ws.webcontainer.osgi.metadata.WebModuleMetaDataImpl@a57eb10f
+      webComponentMetaData = class com.ibm.ws.webcontainer.osgi.metadata.WebComponentMetaDataImpl@79c4871f
+      dVirtualHost = class com.ibm.ws.webcontainer.osgi.DynamicVirtualHost@57667ec8
+      orderedLibPaths = class java.util.Collections$UnmodifiableRandomAccessList@c189f1f2
+      bundleHeaders = null
+      cdiEnabled = false
+      CLASS_NAME = "com.ibm.ws.webcontainer.webapp.WebAppConfiguration"
+      logger = class com.ibm.ws.logging.internal.WsLogger@eb00c662
+      tc = class com.ibm.websphere.ras.TraceComponent@7a922272
+      nls = class com.ibm.ejs.ras.TraceNLS@f56b9308
+      version = 31
+      contextRoot = "/zosConnect/designer"
+      isDefaultContextRootUsed = false
+      sessionTimeout = 0
+      moduleSessionTimeoutSet = false
+      moduleSessionTrackingModeSet = false
+      sessionCookieConfig = class com.ibm.ws.session.SessionCookieConfigImpl@bc346281
+      hasProgrammaticCookieConfig = false
+      sessionDefaultTrackingModeSet = class java.util.RegularEnumSet@3e09acd0
+      sessionManagerConfig = class com.ibm.ws.session.SessionManagerConfig@7a62e5b2
+      displayName = "z/OS Connect Designer"
+      description = null
+      reloadInterval = 0
+      distributable = false
+      denyUncoveredHttpMethods = false
+      reloadingEnabled = false
+      serveServletsByClassnameEnabled = false
+      defaultErrorPage = null
+      additionalClassPath = null
+      fileServingEnabled = null
+      directoryBrowsingEnabled = false
+      autoRequestEncoding = false
+      autoResponseEncoding = false
+      autoLoadFilters = false
+      requestListeners = null
+      requestAttributeListeners = null
+      sessionListeners = null
+      localeMap = null
+      moduleName = "com.ibm.zosconnect.ui"
+      j2eeModuleName = "com.ibm.zosconnect.ui.war"
+      moduleId = null
+      isSyncToThreadEnabled = false
+      encodeDispatchedRequestURI = false
+      isSystemApp = false
+      ardEnabled = false
+      ardDispatchType = null
+      listeners = class java.util.ArrayList@7a92ca56
+      welcomeFileList = class java.util.ArrayList@101c875e
+      servletMappings = class java.util.HashMap@b52d14d2
+      lastIndexBeforeDeclaredFilters = 0
+      filterMappings = class java.util.ArrayList@5d7b8bbf
+      servletInfo = class java.util.concurrent.ConcurrentHashMap@acce6fe4
+      filterInfo = class java.util.HashMap@64839367
+      mimeMappings = class java.util.HashMap@30e082b3
+      mimeFilters = null
+      isMimeFilteringEnabled = false
+      theWebGroup = null
+      jspAttributes = class java.util.HashMap@b28381a4
+      fileServingAttributes = class java.util.HashMap@8310a44
+      invokerAttributes = class java.util.HashMap@6d523e47
+      contextParams = class java.util.HashMap@dbb53cad
+      virtualHost = "default_host"
+      exceptionErrorPages = class java.util.HashMap@d4b862be
+      codeErrorPages = class java.util.HashMap@8c755607
+      tagLibList = null
+      precompileJsps = false
+      webApp = class com.ibm.ws.webcontainer40.osgi.webapp.WebApp40@317b1b80
+      virtualHostList = class java.util.Collections$EmptyList@1868d248
+      appStartupWeight = 0
+      moduleStartupWeight = 0
+      metaDataComplete = false
+      classesToScan = class java.util.ArrayList@32074695
+      uriFilterMappingInfos = class java.util.ArrayList@ed6fc441
+      servletFilterMappingInfos = null
+      dynamicServletRegistrationMap = null
+      applicationName = "zosconnect-ui"
+      libBinPathList = class java.util.ArrayList@1e83bca1
+      webXmlDefinedListeners = class java.util.HashSet@8f29965f
+      allRefs = class java.util.EnumMap@eb96e8fd
+      allRefBindings = class java.util.EnumMap@9e60d5a8
+      envEntryValues = class java.util.HashMap@a3901fbd
+      resourceRefConfigList = null
+      disallowAllFileServingProp = "false"
+      disallowServeServletsByClassnameProp = "true"
+      disableStaticMappingCache = false
+      jspCachedLocations = class java.util.HashMap@1d64a228
+      primedSTSHeader = "NoValue"
+      enablemultireadofpostdata = false
+      requestEncoding = null
+      responseEncoding = null
+      NULLSERVLETNAME = "com.ibm.ws.webcontainer.NullServletName"
+      skipEncodedCharVerification = false
+      _id = "WebAppGeneratedId10"
+      _attributes = null
+      serialVersionUID = 7511545662945734886
+      $$$tc$$$ = class com.ibm.websphere.ras.TraceComponent@aefc7e5
+    filter = null
+    filterClass = null
+    urlPatternMappings = class java.util.ArrayList@6343b35b
+      serialVersionUID = 8683452581122892189
+      DEFAULT_CAPACITY = 10
+      EMPTY_ELEMENTDATA = class java.lang.Object[0]
+      DEFAULTCAPACITY_EMPTY_ELEMENTDATA = class java.lang.Object[0]
+      elementData = class java.lang.Object[10]
+      size = 1
+      MAX_ARRAY_SIZE = 2147483639
+      modCount = 1
+      MAX_ARRAY_SIZE = 2147483639
+    servletNameMappings = null
+    nls = class com.ibm.ejs.ras.TraceNLS@ef4e934e
+      resolver = class com.ibm.ws.logging.internal.TraceNLSResolver@18cdc6f8
+      finder = class com.ibm.ws.logging.internal.StackFinder@cb6920d2
+      ivBundleName = "com.ibm.ws.webcontainer.resources.Messages"
+      caller = class java.lang.Class@ae9b100c
+    logger = class com.ibm.ws.logging.internal.WsLogger@a70a9e4e
+      ivCachedResourceBundleName = "com.ibm.ws.webcontainer.resources.Messages"
+      ivCachedResourceBundle = class com.ibm.ws.webcontainer.resources.Messages@fb91cc21
+      ivComponent = null
+      ivOrganization = null
+      ivProduct = null
+      ivMinimumLocalizationLevelIntValue = 625
+      ivTC = class com.ibm.websphere.ras.TraceComponent@6d411c13
+      loggerRegistrationComponent = class java.lang.ThreadLocal@8e4e497d
+      emptyHandlers = class java.util.logging.Handler[0]
+      offValue = 2147483647
+      SYSTEM_LOGGER_RB_NAME = "sun.util.logging.resources.logging"
+      SYSTEM_BUNDLE = class java.util.logging.Logger$LoggerBundle@c5395492
+      NO_RESOURCE_BUNDLE = class java.util.logging.Logger$LoggerBundle@9e32fbbb
+      manager = class com.ibm.ws.kernel.boot.logging.WsLogManager@f62a5c76
+      name = "com.ibm.ws.webcontainer.servlet"
+      handlers = class java.util.concurrent.CopyOnWriteArrayList@50d79a7c
+      loggerBundle = class java.util.logging.Logger$LoggerBundle@282ed80a
+      useParentHandlers = true
+      filter = null
+      anonymous = false
+      catalog = class com.ibm.ws.webcontainer.resources.Messages@fb91cc21
+      catalogName = "com.ibm.ws.webcontainer.resources.Messages"
+      catalogLocale = class java.util.Locale@6f412e5a
+      treeLock = class java.lang.Object@4438b560
+      parent = class com.ibm.ws.logging.internal.WsLogger@a286a8f6
+      kids = null
+      levelObject = class java.util.logging.Level@d78f0acd
+      levelValue = 800
+      callersClassLoaderRef = class java.lang.ref.WeakReference@1a8b1b43
+      isSystemLogger = false
+      GLOBAL_LOGGER_NAME = "global"
+      global = class java.util.logging.Logger@b271789e
+      $assertionsDisabled = true
+    CLASS_NAME = "com.ibm.ws.webcontainer.servlet.TargetConfig"
+    initParams = null
+    fileName = null
+    displayName = "FilterGeneratedId2"
+    name = "com.ibm.zosconnect.ui.war.CacheFilter"
+    description = null
+    smallIcon = null
+    largeIcon = null
+    context = class com.ibm.ws.webcontainer40.facade.ServletContextFacade40@e38dfd15
+      context = class com.ibm.ws.webcontainer40.osgi.webapp.WebApp40@317b1b80
+    className = "com.ibm.zosconnect.ui.war.CacheFilter"
+    asyncSupported = true
+    _id = "FilterGeneratedId2"
+    _attributes = null
+    serialVersionUID = 7511545662945734886
+    $$$tc$$$ = class com.ibm.websphere.ras.TraceComponent@aefc7e5
+      strings[0] = "TraceComponent[com.ibm.ws.container.BaseConfiguration,class com.ibm.ws.container.BaseConfiguration,[],null,null]"
+  _eventSource = class com.ibm.ws.webcontainer.webapp.WebAppEventSource@9ccf83e7
+    _invocationListeners = class com.ibm.ws.webcontainer.util.EventListeners@84fd3cce
+      EMPTY_LISTENERS = interface java.util.EventListener[0]
+      logger = class com.ibm.ws.logging.internal.WsLogger@f33611ef
+      CLASS_NAME = "com.ibm.ws.webcontainer.util.EventListeners"
+      listeners = interface java.util.EventListener[0]
+    _servletListeners = class com.ibm.ws.webcontainer.util.EventListeners@ac4c83c3
+      EMPTY_LISTENERS = interface java.util.EventListener[0]
+      logger = class com.ibm.ws.logging.internal.WsLogger@f33611ef
+      CLASS_NAME = "com.ibm.ws.webcontainer.util.EventListeners"
+      listeners = interface java.util.EventListener[0]
+    _errorListeners = class com.ibm.ws.webcontainer.util.EventListeners@92a5d7ad
+      EMPTY_LISTENERS = interface java.util.EventListener[0]
+      logger = class com.ibm.ws.logging.internal.WsLogger@f33611ef
+      CLASS_NAME = "com.ibm.ws.webcontainer.util.EventListeners"
+      listeners = interface java.util.EventListener[0]
+    _applicationListeners = class com.ibm.ws.webcontainer.util.EventListeners@70785107
+      EMPTY_LISTENERS = interface java.util.EventListener[0]
+      logger = class com.ibm.ws.logging.internal.WsLogger@f33611ef
+      CLASS_NAME = "com.ibm.ws.webcontainer.util.EventListeners"
+      listeners = interface java.util.EventListener[0]
+    _filterInvocationListeners = class com.ibm.ws.webcontainer.util.EventListeners@628a2608
+      EMPTY_LISTENERS = interface java.util.EventListener[0]
+      logger = class com.ibm.ws.logging.internal.WsLogger@f33611ef
+      CLASS_NAME = "com.ibm.ws.webcontainer.util.EventListeners"
+      listeners = interface java.util.EventListener[0]
+    _filterListeners = class com.ibm.ws.webcontainer.util.EventListeners@e3e9a43c
+      EMPTY_LISTENERS = interface java.util.EventListener[0]
+      logger = class com.ibm.ws.logging.internal.WsLogger@f33611ef
+      CLASS_NAME = "com.ibm.ws.webcontainer.util.EventListeners"
+      listeners = interface java.util.EventListener[0]
+    _filterErrorListeners = class com.ibm.ws.webcontainer.util.EventListeners@12ba7475
+      EMPTY_LISTENERS = interface java.util.EventListener[0]
+      logger = class com.ibm.ws.logging.internal.WsLogger@f33611ef
+      CLASS_NAME = "com.ibm.ws.webcontainer.util.EventListeners"
+      listeners = interface java.util.EventListener[0]
+  _managedObject = class com.ibm.ws.managedobject.internal.ManagedObjectImpl@79add442
+    object = "<sensitive com.ibm.zosconnect.ui.war.CacheFilter@5b6426f2>"
+    serialVersionUID = 316670419635262281
+    $$$tc$$$ = class com.ibm.websphere.ras.TraceComponent@9b46d926
+      strings[0] = "TraceComponent[com.ibm.ws.managedobject.internal.ManagedObjectImpl,class com.ibm.ws.managedobject.internal.ManagedObjectImpl,[],null,null]"
+

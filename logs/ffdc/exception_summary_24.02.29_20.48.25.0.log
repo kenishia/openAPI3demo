@@ -1,6 +1,0 @@
-
- Index  Count  Time of first Occurrence    Time of last Occurrence     Exception SourceId ProbeId
-------+------+---------------------------+---------------------------+---------------------------
-     0      5    2/29/24 20:48:24:431 UTC    2/29/24 21:20:12:518 UTC com.ibm.security.cert.IBMCertPathBuilderException com.ibm.ws.ssl.core.WSX509TrustManager checkServerTrusted
-                                                                            - /logs/ffdc/ffdc_24.02.29_20.48.24.0.log
-------+------+---------------------------+---------------------------+---------------------------

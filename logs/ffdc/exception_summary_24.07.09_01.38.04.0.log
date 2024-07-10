@@ -1,0 +1,14 @@
+
+ Index  Count  Time of first Occurrence    Time of last Occurrence     Exception SourceId ProbeId
+------+------+---------------------------+---------------------------+---------------------------
+     0      1      7/9/24 1:38:04:465 UTC      7/9/24 1:38:04:465 UTC javax.servlet.ServletException com.ibm.ws.webcontainer.servlet.FileServletWrapper.handleRequest 309
+                                                                            - /logs/ffdc/ffdc_24.07.09_01.38.04.0.log
+     1      2      7/9/24 1:38:04:507 UTC      7/9/24 1:38:06:018 UTC com.ibm.ws.webcontainer.webapp.WebAppErrorReport com.ibm.ws.webcontainer.filter.WebAppFilterChain.doFilter 82
+                                                                            - /logs/ffdc/ffdc_24.07.09_01.38.04.1.log
+     2      1      7/9/24 1:38:05:722 UTC      7/9/24 1:38:05:722 UTC com.ibm.ws.webcontainer.webapp.WebAppErrorReport com.ibm.ws.webcontainer.filter.FilterInstanceWrapper.doFilter 144
+                                                                            - /logs/ffdc/ffdc_24.07.09_01.38.05.0.log
+     3      1      7/9/24 1:38:06:075 UTC      7/9/24 1:38:06:075 UTC java.io.IOException com.ibm.ws.webcontainer.webapp.WebApp.handleError 912
+                                                                            - /logs/ffdc/ffdc_24.07.09_01.38.06.0.log
+     4      1      7/9/24 1:38:08:241 UTC      7/9/24 1:38:08:241 UTC java.lang.IllegalStateException com.ibm.ws.webcontainer.webapp.WebApp.reportRecursiveError 985
+                                                                            - /logs/ffdc/ffdc_24.07.09_01.38.08.0.log
+------+------+---------------------------+---------------------------+---------------------------

@@ -13,8 +13,8 @@ services:
             - CICS_PORT=6088
             - HTTP_PORT=9080
         ports:
-            - "9443:9443"
-            - "9080:9080"
+            - "19443:9443"
+            - "19080:9080"
         #edit first volume below to match name of API
         volumes:
             - ./CatalogManagerApi:/workspace/project
